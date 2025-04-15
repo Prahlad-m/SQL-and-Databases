@@ -51,8 +51,70 @@ Worked on SQL queries using the `world_db` dataset.
   ```sql
   SELECT COUNT(name) FROM city WHERE CountryCode = 'USA';
 
-- **Cities in USA**
+- **Country with highest Life Expectancy**
   ```sql
-  SELECT COUNT(name) FROM city WHERE CountryCode = 'USA';
+  SELECT Name, LifeExpectancy FROM country ORDER BY LifeExpectancy DESC LIMIT 5;
+
+- **Cities Named Starting with "New"**
+  ```sql
+  SELECT * FROM city WHERE LEFT(name, 3) = 'New';
+
+- **Cities Between 500k - 1M Population**
+  ```sql
+  SELECT * FROM city WHERE Population BETWEEN 500000 AND 1000000;
+
+- **Capital of Spain**
+  ```sql
+  SELECT city.name AS Capital, country.name AS Country
+  FROM city
+  JOIN country ON city.ID = country.capital
+  WHERE country.name = 'Spain';
+
+- **Cities with High GDP per Capita**
+  ```sql
+  SELECT Name, Continent, GNP
+  FROM country
+  WHERE GNP > (SELECT AVG(GNP) FROM country)
+  ORDER BY GNP DESC;
+
+### 📝 Day 4 – Task 2: Retail Business Database Design
+
+**Scenario**: A small corner shop wants a new database system to manage inventory, customer data, sales, and a loyalty program.
+
+#### 📌 Step-by-Step Summary
+
+1. **Understanding the Business Requirements**
+   - The database needs to store product data, stock levels, pricing, customer information, purchase history, and loyalty status.
+   - Users of the system will be the shop owner and staff.
+   - Their goals include tracking sales, managing stock, and analysing customer behaviour.
+
+2. **Designing the Database Schema**
+   - Key tables may include:
+     - `Products` – details like name, price, stock quantity, and category.
+     - `Categories` – classification of product types.
+     - `Customers` – personal and contact information, loyalty membership.
+     - `Sales` – records of each transaction.
+     - `SaleDetails` – line items in each sale, including quantity and products sold.
+   - Relationships:
+     - A customer can have many sales.
+     - Each sale can include multiple products.
+     - Each product belongs to a category.
+
+3. **Implementing the Database**
+   - Plan out the structure of each table and define relationships between them.
+   - Make sure to apply primary and foreign keys to link related data.
+
+4. **Populating the Database**
+   - Start with sample data entries for products, categories, and customers.
+   - Record sample transactions and sale details.
+
+5. **Maintaining the Database**
+   - Input sales data regularly and generate weekly reports to monitor performance.
+   - Ensure data is backed up consistently.
+   - Consider measures for data validation, accuracy, and security.
+
+> ✅ This database system will help streamline store operations, ensure accurate inventory management, and improve customer engagement through loyalty tracking.
+
+  
 
 
