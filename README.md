@@ -114,7 +114,6 @@ Worked on SQL queries using the `world_db` dataset.
    - Consider measures for data validation, accuracy, and security.
 
 > ✅ This database system will help streamline store operations, ensure accurate inventory management, and improve customer engagement through loyalty tracking.
-
   
 
 
