@@ -51,7 +51,7 @@ Worked on SQL queries using the `world_db` dataset.
   ```sql
   SELECT COUNT(name) FROM city WHERE CountryCode = 'USA';
 
-- **Country with highest Life Expectancy**
+- **Country with the highest Life Expectancy**
   ```sql
   SELECT Name, LifeExpectancy FROM country ORDER BY LifeExpectancy DESC LIMIT 5;
 
@@ -106,7 +106,7 @@ Worked on SQL queries using the `world_db` dataset.
 
 4. **Populating the Database**
    - Start with sample data entries for products, categories, and customers.
-   - Record sample transactions and sale details.
+   - Record sample transactions and sales details.
 
 5. **Maintaining the Database**
    - Input sales data regularly and generate weekly reports to monitor performance.
